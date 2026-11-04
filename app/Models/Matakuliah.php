@@ -19,4 +19,9 @@ class Matakuliah extends Model
         'kode',
         'nama_matakuliah'
     ];
+
+    public function absensis()
+    {
+        return $this->hasMany(Absensi::class, 'matakuliah_id');
+    }
 }

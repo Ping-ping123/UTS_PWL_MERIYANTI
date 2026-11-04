@@ -6,14 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mahasiswa extends Model
 {
+    protected $table = 'mahasiswas';
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $fillable = [
+        'id',
         'NIM',
         'name',
-        'tempat_lahir',
-        'tanggal_lahir',
         'jurusan',
-        'angkatan'
     ];
 
-    protected $table = 'mahasiswas';
+    public function absensis()
+    {
+        return $this->hasMany(Absensi::class, 'mahasiswa_id');
+    }
 }
